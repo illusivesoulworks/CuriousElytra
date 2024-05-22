@@ -35,11 +35,11 @@ jobs:
     - name: Make gradlew executable
       run: chmod +x ./gradlew
     - name: Build with Gradle Wrapper
-      run: ./gradlew publishToMavenLocal
+      run: ./gradlew build
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: elytraslot-artifacts-${{ steps.ref.outputs.branch }}
+        name: elytraslot-artifacts-fabric
         path: fabric/build/libs/*.jar
 
 
