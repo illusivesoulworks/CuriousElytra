@@ -40,7 +40,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: elytraslot-artifacts-${{ steps.ref.outputs.branch }}
-        path: build/outputs/*.jar
+        path: fabric/build/libs/*.jar
 
 
     # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
