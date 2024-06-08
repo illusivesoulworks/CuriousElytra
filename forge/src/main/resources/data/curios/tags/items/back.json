@@ -5,6 +5,10 @@
     {
       "id": "silentgear:elytra",
       "required": false
+    },
+    {
+      "id": "mna:spectral_elytra",
+      "required": false
     }
   ]
 }

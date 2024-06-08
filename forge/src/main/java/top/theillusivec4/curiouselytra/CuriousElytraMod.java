@@ -60,6 +60,7 @@ import top.theillusivec4.curiouselytra.client.CuriousElytraClientMod;
 import top.theillusivec4.curiouselytra.common.CurioElytra;
 import top.theillusivec4.curiouselytra.common.IElytraProvider;
 import top.theillusivec4.curiouselytra.common.VanillaElytraProvider;
+import top.theillusivec4.curiouselytra.common.integration.MnaElytraProvider;
 import top.theillusivec4.curiouselytra.common.integration.SilentGearElytraProvider;
 
 @Mod(CuriousElytraMod.MOD_ID)
@@ -75,6 +76,7 @@ public class CuriousElytraMod {
 
   static {
     PROVIDERS.put("silentgear", () -> SilentGearElytraProvider::new);
+    PROVIDERS.put("mna", () -> MnaElytraProvider::new);
   }
 
   public CuriousElytraMod() {
