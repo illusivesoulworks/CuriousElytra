@@ -10,6 +10,11 @@ public class SpectralElytra implements ICustomElytra {
       new ResourceLocation("mana-and-artifice:spectral_elytra");
 
   @Override
+  public boolean attachCapability(ItemStack stack) {
+    return matches(stack, SPECTRAL_ELYTRA);
+  }
+
+  @Override
   public boolean renderElytra(ItemStack stack, RenderElytraEvent evt) {
 
     if (matches(stack, SPECTRAL_ELYTRA)) {
