@@ -19,7 +19,6 @@
 
 package top.theillusivec4.curiouselytra;
 
-import com.mojang.datafixers.util.Pair;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -48,6 +47,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.apache.commons.lang3.tuple.Triple;
 import top.theillusivec4.caelus.api.CaelusApi;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.CuriosCapability;
@@ -154,10 +154,11 @@ public class CuriousElytraMod {
     }
   }
 
-  public static Optional<Pair<IElytraProvider, ItemStack>> getElytra(
+  public static Optional<Triple<IElytraProvider, ItemStack, Boolean>> getElytra(
       final LivingEntity livingEntity, boolean shouldFly) {
     AtomicReference<IElytraProvider> atomicProvider = new AtomicReference<>();
     AtomicReference<ItemStack> atomicStack = new AtomicReference<>(ItemStack.EMPTY);
+    AtomicReference<Boolean> renderable = new AtomicReference<>(true);
     CuriosApi.getCuriosHelper().getCuriosHandler(livingEntity).ifPresent(curios -> {
 
       for (Map.Entry<String, ICurioStacksHandler> entry : curios.getCurios().entrySet()) {
@@ -171,14 +172,15 @@ public class CuriousElytraMod {
             if (provider.matches(stack) && (!shouldFly || provider.canFly(stack, livingEntity))) {
               atomicProvider.set(provider);
               atomicStack.set(stack);
+              renderable.set(entry.getValue().getRenders().get(i));
             }
           }
         }
       }
     });
     IElytraProvider resultProvider = atomicProvider.get();
-    ItemStack resultStack = atomicStack.get();
-    return resultProvider != null ? Optional.of(new Pair<>(resultProvider, resultStack)) :
+    return resultProvider != null ?
+        Optional.of(Triple.of(resultProvider, atomicStack.get(), renderable.get())) :
         Optional.empty();
   }
 }

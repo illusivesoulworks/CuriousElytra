@@ -41,9 +41,13 @@ public class CurioElytraLayer<T extends LivingEntity, M extends EntityModel<T>>
                      int pPackedLight, T pLivingEntity, float pLimbSwing, float pLimbSwingAmount,
                      float pPartialTicks, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
     CuriousElytraMod.getElytra(pLivingEntity, false).ifPresent(elytra -> {
+
+      if (!elytra.getRight()) {
+        return;
+      }
       ResourceLocation resourcelocation;
-      IElytraProvider provider = elytra.getFirst();
-      ItemStack stack = elytra.getSecond();
+      IElytraProvider provider = elytra.getLeft();
+      ItemStack stack = elytra.getMiddle();
 
       if (CuriousElytraMod.isQuarkLoaded) {
         QuarkModule.setColoredStack(stack);
