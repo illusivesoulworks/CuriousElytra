@@ -4,7 +4,8 @@
   "compatibilityLevel": "JAVA_16",
   "mixins": [
     "aileron.AileronImplMixin",
-    "aileron.EnchantmentHelperMixin"
+    "aileron.EnchantmentHelperMixin",
+    "waveycapes.CustomCapeMixin"
   ],
   "plugin": "top.theillusivec4.curiouselytra.mixin.integration.IntegrationMixinPlugin",
   "minVersion": "0.8",

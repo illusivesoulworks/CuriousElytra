@@ -24,6 +24,8 @@ public class IntegrationMixinPlugin implements IMixinConfigPlugin {
 
     if (mixinClassName.startsWith("top.theillusivec4.curiouselytra.mixin.integration.aileron")) {
       return FMLLoader.getLoadingModList().getModFileById("aileron") != null;
+    } else if (mixinClassName.startsWith("top.theillusivec4.curiouselytra.mixin.integration.waveycapes")) {
+      return FMLLoader.getLoadingModList().getModFileById("waveycapes") != null;
     }
     return true;
   }
