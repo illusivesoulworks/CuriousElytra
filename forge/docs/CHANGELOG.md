@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project does not adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 
+## [1.18.2-5.0.2.0] - 2024.06.09
+### Added
+- Added support for Mana and Artifice's Spectral Elytra [#34](https://github.com/illusivesoulworks/elytraslot/issues/34)
+- Added support for Aileron's elytra enchantments [#60](https://github.com/illusivesoulworks/elytraslot/issues/60)
+- Added compatibility with Elytra Physics [#51](https://github.com/illusivesoulworks/elytraslot/issues/51)
+- Added compatibility with Wavey Capes [#32](https://github.com/illusivesoulworks/elytraslot/issues/32)
+### Fixed
+- Fixed render toggling [#97](https://github.com/illusivesoulworks/elytraslot/issues/97)
+
 ## [1.18.1-5.0.1.0] - 2021.01.11
 ### Added
 - Added support for Quark's Colored Runes [#40](https://github.com/TheIllusiveC4/CuriousElytra/issues/40)
