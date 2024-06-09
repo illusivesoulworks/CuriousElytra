@@ -89,6 +89,7 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:silentlib-242998:${cf_silentlib}")
     runtimeOnly fg.deobf("curse.maven:arl-250363:3575622")
     compileOnly fg.deobf("curse.maven:aileron-649925:4376420")
+    compileOnly fg.deobf("curse.maven:elytra-physics-650221:4008943")
 //    runtimeOnly fg.deobf("curse.maven:citadel-331936:3584733")
 }
 

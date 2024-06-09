@@ -23,6 +23,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import top.theillusivec4.curiouselytra.CuriousElytraMod;
 import top.theillusivec4.curiouselytra.common.IElytraProvider;
+import top.theillusivec4.curiouselytra.common.integration.ElytraPhysicsModule;
 import top.theillusivec4.curiouselytra.common.integration.QuarkModule;
 
 @OnlyIn(Dist.CLIENT)
@@ -77,6 +78,10 @@ public class CurioElytraLayer<T extends LivingEntity, M extends EntityModel<T>>
       float green = color.getGreen() / 255.0F;
       float blue = color.getBlue() / 255.0F;
       float alpha = color.getAlpha() / 255.0F;
+
+      if (CuriousElytraMod.isElytraPhysicsLoaded) {
+        ElytraPhysicsModule.applyTransformation(pMatrixStack, pLivingEntity, pPartialTicks);
+      }
       this.elytraModel.renderToBuffer(pMatrixStack, vertexconsumer, pPackedLight,
           OverlayTexture.NO_OVERLAY, red, green, blue, alpha);
       pMatrixStack.popPose();
