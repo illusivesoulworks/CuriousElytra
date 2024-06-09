@@ -1,0 +1,12 @@
+{
+  "required": false,
+  "package": "top.theillusivec4.curiouselytra.mixin.integration",
+  "compatibilityLevel": "JAVA_16",
+  "mixins": [
+    "aileron.AileronImplMixin",
+    "aileron.EnchantmentHelperMixin"
+  ],
+  "plugin": "top.theillusivec4.curiouselytra.mixin.integration.IntegrationMixinPlugin",
+  "minVersion": "0.8",
+  "refmap": "curiouselytra-integrations.refmap.json"
+}

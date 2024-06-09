@@ -3,17 +3,23 @@ buildscript {
 		maven { url = 'https://files.minecraftforge.net/maven' }
 		maven { url = 'https://maven.parchmentmc.org' }
         maven { url = 'https://plugins.gradle.org/m2/' }
+        maven {
+            url "https://repo.spongepowered.org/repository/maven-public/"
+            content { includeGroup "org.spongepowered" }
+        }
         mavenCentral()
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
         classpath group: 'gradle.plugin.com.matthewprenger', name: 'CurseGradle', version: '1.4.0'
 		classpath group: 'org.parchmentmc', name: 'librarian', version: '1.+'
+        classpath group: 'org.spongepowered', name: 'mixingradle', version: '0.7-SNAPSHOT'
     }
 }
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'com.matthewprenger.cursegradle'
 apply plugin: 'org.parchmentmc.librarian.forgegradle'
+apply plugin: 'org.spongepowered.mixin'
 
 version = "${mod_version}"
 group = "top.theillusivec4.curiouselytra"
@@ -31,6 +37,7 @@ minecraft {
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'debug'
 			property 'mixin.env.disableRefMap', 'true'
+            arg "-mixin.config=curiouselytra-integrations.mixins.json"
 
             mods {
                 curiouselytra {
@@ -45,6 +52,7 @@ minecraft {
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'debug'
 			property 'mixin.env.disableRefMap', 'true'
+            arg "-mixin.config=curiouselytra-integrations.mixins.json"
 
             mods {
                 curiouselytra {
@@ -53,6 +61,10 @@ minecraft {
             }
         }
     }
+}
+
+mixin {
+    add sourceSets.main, "curiouselytra-integrations.refmap.json"
 }
 
 repositories {
@@ -67,6 +79,7 @@ repositories {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${forge_version}"
+    annotationProcessor 'org.spongepowered:mixin:0.8.4:processor'
     implementation fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
     implementation fg.deobf("top.theillusivec4.caelus:caelus-forge:${caelus_version}")
     implementation fg.deobf("curse.maven:silentgear-297039:${cf_silentgear}")
@@ -75,6 +88,7 @@ dependencies {
 
     runtimeOnly fg.deobf("curse.maven:silentlib-242998:${cf_silentlib}")
     runtimeOnly fg.deobf("curse.maven:arl-250363:3575622")
+    compileOnly fg.deobf("curse.maven:aileron-649925:4376420")
 //    runtimeOnly fg.deobf("curse.maven:citadel-331936:3584733")
 }
 
@@ -110,7 +124,8 @@ jar {
                     "Implementation-Title"    : "Curious Elytra",
                     "Implementation-Version"  : "${getArchiveVersion()}",
                     "Implementation-Vendor"   : "C4",
-                    "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")],)
+                    "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                    "MixinConfigs"			  : "curiouselytra-integrations.mixins.json"],)
     }
 }
 
