@@ -5,7 +5,8 @@
   "mixins": [
     "aileron.LivingEntityMxMixin",
     "aileron.PlayerEntityMxMixin",
-    "waveycapes.CustomCapeMixin"
+    "waveycapes.CustomCapeMixin",
+    "elytrabounce.LivingEntityMxMixin"
   ],
   "plugin": "com.illusivesoulworks.elytraslot.mixin.IntegrationMixinPlugin",
   "minVersion": "0.8",

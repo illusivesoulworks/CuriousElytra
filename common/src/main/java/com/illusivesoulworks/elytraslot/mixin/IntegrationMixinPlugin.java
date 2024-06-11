@@ -26,6 +26,8 @@ public class IntegrationMixinPlugin implements IMixinConfigPlugin {
       return Services.LOADING.isModLoaded("aileron");
     } else if (mixinClassName.startsWith("com.illusivesoulworks.elytraslot.mixin.integration.waveycapes")) {
       return Services.LOADING.isModLoaded("waveycapes");
+    } else if (mixinClassName.startsWith("com.illusivesoulworks.elytraslot.mixin.integration.elytrabounce")) {
+      return Services.LOADING.isModLoaded("elytrabounce");
     }
     return true;
   }
