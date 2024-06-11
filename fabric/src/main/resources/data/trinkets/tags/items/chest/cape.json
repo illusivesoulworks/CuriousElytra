@@ -3,11 +3,35 @@
   "values": [
     "minecraft:elytra",
     {
+      "id": "silentgear:elytra",
+      "required": false
+    },
+    {
+      "id": "mekanism:hdpe_elytra",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:tarantula_hawk_elytra",
+      "required": false
+    },
+    {
+      "id": "wooden_elytra:wooden_elytra",
+      "required": false
+    },
+    {
+      "id": "mna:spectral_elytra",
+      "required": false
+    },
+    {
       "id": "deeperdarker:soul_elytra",
       "required": false
     },
     {
       "id": "enderitemod:enderite_elytra_seperated",
+      "required": false
+    },
+    {
+      "id": "netherelytra:netherite_elytra",
       "required": false
     },
     {
@@ -64,6 +88,10 @@
     },
     {
       "id": "lilwings:grayling_blooming_elytra",
+      "required": false
+    },
+    {
+      "id": "lolenderite:enderite_plated_elytra",
       "required": false
     }
   ]

@@ -66,6 +66,11 @@ public class SimpleCompatibilityProvider implements IElytraProvider {
             new ResourceLocation("wooden_elytra:textures/entities/wooden_elytra.png"));
       }
 
+      if (isLoaded.test("lolenderite")) {
+        ID_TO_TEXTURE.put("lolenderite:enderite_plated_elytra",
+            new ResourceLocation("lolenderite:textures/entity/enderite_plated_elytra.png"));
+      }
+
       if (isLoaded.test("netherelytra")) {
         ID_TO_TEXTURE.put("netherelytra:netherite_elytra",
             new ResourceLocation("netherelytra:textures/entity/netherite_elytra.png"));

@@ -89,6 +89,10 @@
     {
       "id": "lilwings:grayling_blooming_elytra",
       "required": false
+    },
+    {
+      "id": "lolenderite:enderite_plated_elytra",
+      "required": false
     }
   ]
 }
