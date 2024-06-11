@@ -17,7 +17,7 @@
 
 package com.illusivesoulworks.elytraslot.platform.services;
 
-import java.util.function.Function;
+import java.util.function.BiFunction;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 
@@ -29,5 +29,5 @@ public interface IElytraPlatform {
 
   boolean canFly(ItemStack stack, LivingEntity livingEntity, boolean doTick);
 
-  void processSlots(LivingEntity livingEntity, Function<ItemStack, Boolean> processor);
+  void processSlots(LivingEntity livingEntity, BiFunction<ItemStack, Boolean, Boolean> processor);
 }

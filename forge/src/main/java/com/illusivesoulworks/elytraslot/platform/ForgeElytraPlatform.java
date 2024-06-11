@@ -19,11 +19,14 @@ package com.illusivesoulworks.elytraslot.platform;
 
 import com.illusivesoulworks.elytraslot.ElytraSlotCommonMod;
 import com.illusivesoulworks.elytraslot.platform.services.IElytraPlatform;
-import java.util.function.Function;
+import java.util.Map;
+import java.util.function.BiFunction;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotResult;
+import top.theillusivec4.curios.api.type.inventory.ICurioStacksHandler;
+import top.theillusivec4.curios.api.type.inventory.IDynamicStackHandler;
 
 public class ForgeElytraPlatform implements IElytraPlatform {
 
@@ -44,13 +47,18 @@ public class ForgeElytraPlatform implements IElytraPlatform {
   }
 
   @Override
-  public void processSlots(LivingEntity livingEntity, Function<ItemStack, Boolean> processor) {
-    CuriosApi.getCuriosHelper().getEquippedCurios(livingEntity).ifPresent(itemHandler -> {
+  public void processSlots(LivingEntity livingEntity,
+                           BiFunction<ItemStack, Boolean, Boolean> processor) {
+    CuriosApi.getCuriosHelper().getCuriosHandler(livingEntity).ifPresent(curios -> {
 
-      for (int i = 0; i < itemHandler.getSlots(); i++) {
+      for (Map.Entry<String, ICurioStacksHandler> entry : curios.getCurios().entrySet()) {
+        IDynamicStackHandler stacks = entry.getValue().getStacks();
 
-        if (processor.apply(itemHandler.getStackInSlot(i))) {
-          return;
+        for (int i = 0; i < stacks.getSlots(); i++) {
+
+          if (processor.apply(stacks.getStackInSlot(i), entry.getValue().getRenders().get(i))) {
+            return;
+          }
         }
       }
     });

@@ -22,7 +22,7 @@ import com.illusivesoulworks.elytraslot.platform.services.IElytraPlatform;
 import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.TrinketsApi;
 import java.util.List;
-import java.util.function.Function;
+import java.util.function.BiFunction;
 import net.fabricmc.fabric.api.entity.event.v1.FabricElytraItem;
 import net.minecraft.util.Tuple;
 import net.minecraft.world.entity.LivingEntity;
@@ -65,13 +65,14 @@ public class FabricElytraPlatform implements IElytraPlatform {
   }
 
   @Override
-  public void processSlots(LivingEntity livingEntity, Function<ItemStack, Boolean> processor) {
+  public void processSlots(LivingEntity livingEntity,
+                           BiFunction<ItemStack, Boolean, Boolean> processor) {
     TrinketsApi.getTrinketComponent(livingEntity).ifPresent(trinketComponent -> {
       List<Tuple<SlotReference, ItemStack>> list = trinketComponent.getAllEquipped();
 
       for (Tuple<SlotReference, ItemStack> ref : list) {
 
-        if (processor.apply(ref.getB())) {
+        if (processor.apply(ref.getB(), true)) {
           return;
         }
       }

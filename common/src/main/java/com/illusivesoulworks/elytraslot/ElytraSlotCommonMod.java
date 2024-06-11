@@ -57,9 +57,9 @@ public class ElytraSlotCommonMod {
 
   public static Optional<ElytraRenderResult> getElytraRender(final LivingEntity livingEntity) {
     AtomicReference<ElytraRenderResult> result = new AtomicReference<>();
-    Services.ELYTRA.processSlots(livingEntity, stack -> {
+    Services.ELYTRA.processSlots(livingEntity, (stack, render) -> {
 
-      if (!stack.isEmpty()) {
+      if (!stack.isEmpty() && render) {
 
         for (IElytraProvider provider : PROVIDERS) {
 
@@ -76,7 +76,7 @@ public class ElytraSlotCommonMod {
 
   public static boolean canFly(final LivingEntity livingEntity, boolean doTick) {
     AtomicBoolean result = new AtomicBoolean();
-    Services.ELYTRA.processSlots(livingEntity, stack -> {
+    Services.ELYTRA.processSlots(livingEntity, (stack, render) -> {
 
       if (!stack.isEmpty()) {
 
