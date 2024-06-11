@@ -4,7 +4,8 @@
   "compatibilityLevel": "JAVA_16",
   "mixins": [
     "aileron.LivingEntityMxMixin",
-    "aileron.PlayerEntityMxMixin"
+    "aileron.PlayerEntityMxMixin",
+    "waveycapes.CustomCapeMixin"
   ],
   "plugin": "com.illusivesoulworks.elytraslot.mixin.IntegrationMixinPlugin",
   "minVersion": "0.8",
