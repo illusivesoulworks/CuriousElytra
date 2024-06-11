@@ -21,7 +21,9 @@
       "com.illusivesoulworks.elytraslot.ElytraSlotFabricClientMod"
     ]
   },
-  "mixins": [],
+  "mixins": [
+    "elytraslot-integrations.mixins.json"
+  ],
   "depends": {
     "fabricloader": ">=0.14",
     "fabric": "*",

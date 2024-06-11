@@ -1,0 +1,12 @@
+{
+  "required": false,
+  "package": "com.illusivesoulworks.elytraslot.mixin.integration",
+  "compatibilityLevel": "JAVA_16",
+  "mixins": [
+    "aileron.LivingEntityMxMixin",
+    "aileron.PlayerEntityMxMixin"
+  ],
+  "plugin": "com.illusivesoulworks.elytraslot.mixin.IntegrationMixinPlugin",
+  "minVersion": "0.8",
+  "refmap": "${refmap_target}refmap.json"
+}

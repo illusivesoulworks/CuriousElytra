@@ -23,6 +23,8 @@ minecraft {
 
 dependencies {
     compileOnly group: 'org.spongepowered', name: 'mixin', version: '0.8.5'
+    compileOnly group: 'org.ow2.asm', name: 'asm-tree', version: '9.3'
+    compileOnly(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-common:0.1.2-beta.6"))
     implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
 }
 
