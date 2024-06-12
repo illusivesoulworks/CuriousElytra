@@ -87,6 +87,7 @@ minecraft {
 
 mixin {
     config "elytraslot-integrations.mixins.json"
+    config "elytraslot-forge-integrations.mixins.json"
     add sourceSets.main, "${mod_id}.refmap.json"
 }
 
