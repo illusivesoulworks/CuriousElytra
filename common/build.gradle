@@ -1,6 +1,10 @@
+buildscript {
+    dependencies.add 'classpath', 'org.spongepowered:vanillagradle:0.2.1-20240507.024226-82'
+}
+
 plugins {
     id 'java'
-    id 'org.spongepowered.gradle.vanilla' version '0.2.1-SNAPSHOT'
+    id 'org.spongepowered.gradle.vanilla' version '0.2.1-20240507.024226-82'
     id 'maven-publish'
 }
 

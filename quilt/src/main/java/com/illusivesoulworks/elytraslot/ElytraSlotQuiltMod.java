@@ -52,6 +52,19 @@ public class ElytraSlotQuiltMod implements ModInitializer {
     TrinketsApi.registerTrinket(Items.ELYTRA, new Trinket() {
 
       @Override
+      public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
+        int nextRoll = entity.getFallFlyingTicks() + 1;
+
+        if (!entity.level().isClientSide() && nextRoll % 10 == 0) {
+
+          if ((nextRoll / 10) % 2 == 0) {
+            stack.hurtAndBreak(1, entity, p -> TrinketsApi.onTrinketBroken(stack, slot, entity));
+          }
+          entity.gameEvent(GameEvent.ELYTRA_GLIDE);
+        }
+      }
+
+      @Override
       public boolean canEquip(ItemStack stack, SlotReference slot, LivingEntity entity) {
         return ElytraSlotCommonMod.canEquip(entity);
       }
