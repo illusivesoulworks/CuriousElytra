@@ -101,6 +101,9 @@ dependencies {
     runtimeOnly fg.deobf("top.theillusivec4.caelus:caelus-forge:${caelus_version}")
     compileOnly fg.deobf("top.theillusivec4.caelus:caelus-forge:${caelus_version}:api")
 
+    compileOnly fg.deobf("curse.maven:zeta-968868:5418213")
+    compileOnly fg.deobf("curse.maven:quark-243121:5418252")
+
     implementation(jarJar("com.github.bawnorton.mixinsquared:mixinsquared-forge:0.1.2-beta.6")) {
         jarJar.ranged(it, "(0.0,0.1.2-beta.6]")
     }

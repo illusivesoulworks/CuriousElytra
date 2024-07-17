@@ -20,6 +20,7 @@ package com.illusivesoulworks.elytraslot.platform;
 import com.illusivesoulworks.elytraslot.platform.services.IClientPlatform;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 
 public class FabricClientPlatform implements IClientPlatform {
 
@@ -31,5 +32,10 @@ public class FabricClientPlatform implements IClientPlatform {
   @Override
   public ResourceLocation getCustomCape(Player player) {
     return null;
+  }
+
+  @Override
+  public void processLayerRendering(ItemStack stack) {
+
   }
 }

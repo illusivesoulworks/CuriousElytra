@@ -31,6 +31,7 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -42,9 +43,12 @@ import top.theillusivec4.curios.api.type.capability.ICurio;
 @Mod(ElytraSlotConstants.MOD_ID)
 public class ElytraSlotForgeMod {
 
+  public static boolean isQuarkLoaded = false;
+
   public ElytraSlotForgeMod() {
     ElytraSlotCommonMod.init();
     IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+    isQuarkLoaded = ModList.get().isLoaded("quark");
     eventBus.addListener(this::clientSetup);
     eventBus.addListener(this::setup);
   }

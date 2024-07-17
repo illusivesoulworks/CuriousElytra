@@ -19,10 +19,13 @@ package com.illusivesoulworks.elytraslot.platform.services;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 
 public interface IClientPlatform {
 
   boolean hasCustomCape(Player player);
 
   ResourceLocation getCustomCape(Player player);
+
+  void processLayerRendering(ItemStack stack);
 }

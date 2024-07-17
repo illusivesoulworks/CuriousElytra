@@ -57,6 +57,7 @@ public class ElytraSlotLayer<T extends LivingEntity, M extends EntityModel<T>>
       if (elytra.stack().getItem() instanceof ArmorItem) {
         return;
       }
+      Services.CLIENT.processLayerRendering(elytra.stack());
 
       if (livingEntity instanceof AbstractClientPlayer abstractclientplayer) {
 
