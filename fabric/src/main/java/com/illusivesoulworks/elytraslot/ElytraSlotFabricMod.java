@@ -27,6 +27,7 @@ import net.fabricmc.fabric.api.entity.event.v1.FabricElytraItem;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.gameevent.GameEvent;
 
 public class ElytraSlotFabricMod implements ModInitializer {
 
@@ -48,6 +49,19 @@ public class ElytraSlotFabricMod implements ModInitializer {
       return false;
     });
     TrinketsApi.registerTrinket(Items.ELYTRA, new Trinket() {
+
+      @Override
+      public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
+        int nextRoll = entity.getFallFlyingTicks() + 1;
+
+        if (!entity.level().isClientSide() && nextRoll % 10 == 0) {
+
+          if ((nextRoll / 10) % 2 == 0) {
+            stack.hurtAndBreak(1, entity, p -> TrinketsApi.onTrinketBroken(stack, slot, entity));
+          }
+          entity.gameEvent(GameEvent.ELYTRA_GLIDE);
+        }
+      }
 
       @Override
       public boolean canEquip(ItemStack stack, SlotReference slot, LivingEntity entity) {
