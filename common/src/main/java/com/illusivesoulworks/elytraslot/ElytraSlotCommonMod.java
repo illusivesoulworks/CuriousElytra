@@ -48,7 +48,7 @@ public class ElytraSlotCommonMod {
     }
   };
 
-  private static final List<IElytraProvider> PROVIDERS = new LinkedList<>();
+  public static final List<IElytraProvider> PROVIDERS = new LinkedList<>();
 
   public static void init() {
     PROVIDERS.add(new VanillaElytraProvider());
