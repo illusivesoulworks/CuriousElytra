@@ -192,6 +192,14 @@ def ordered(String... dependencyPaths) {
     return dependencies
 }
 
+tasks.register('publishForge') {
+    dependsOn ordered(':forge:modrinth', ':forge:publishCurseForge')
+
+    doLast {
+        publishDiscord()
+    }
+}
+
 tasks.register('publishFabricForgeQuilt') {
     dependsOn ordered(':quilt:modrinth', ':quilt:publishCurseForge', ':fabric:modrinth', ':fabric:publishCurseForge', ':forge:modrinth', ':forge:publishCurseForge')
 
