@@ -21,6 +21,7 @@ import com.illusivesoulworks.elytraslot.platform.services.IPlatform;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -29,7 +30,7 @@ import org.quiltmc.loader.api.QuiltLoader;
 
 public class QuiltPlatform implements IPlatform {
 
-  private static final Map<String, Boolean> CACHE = new HashMap<>();
+  private static final Map<String, Boolean> CACHE = new ConcurrentHashMap<>();
 
   @Override
   public boolean isModLoaded(String id) {

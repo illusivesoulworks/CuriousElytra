@@ -21,6 +21,7 @@ import com.illusivesoulworks.elytraslot.platform.services.IPlatform;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -30,7 +31,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class FabricPlatform implements IPlatform {
 
-  private static final Map<String, Boolean> CACHE = new HashMap<>();
+  private static final Map<String, Boolean> CACHE = new ConcurrentHashMap<>();
 
   @Override
   public boolean isModLoaded(String id) {
