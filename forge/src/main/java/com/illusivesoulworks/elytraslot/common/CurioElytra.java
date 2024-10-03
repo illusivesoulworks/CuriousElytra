@@ -18,6 +18,8 @@
 package com.illusivesoulworks.elytraslot.common;
 
 import com.illusivesoulworks.elytraslot.ElytraSlotCommonMod;
+import com.illusivesoulworks.elytraslot.common.integration.deeperdarker.DeeperDarkerPlugin;
+import com.illusivesoulworks.elytraslot.platform.Services;
 import java.util.UUID;
 import javax.annotation.Nonnull;
 import net.minecraft.sounds.SoundEvents;
@@ -50,6 +52,10 @@ public class CurioElytra implements ICurio {
 
     if (ticks > 0 && livingEntity.isFallFlying()) {
       this.stack.elytraFlightTick(livingEntity, ticks);
+    }
+
+    if (Services.PLATFORM.isModLoaded("deeperdarker")) {
+      DeeperDarkerPlugin.tick(livingEntity.level(), livingEntity);
     }
   }
 

@@ -18,6 +18,9 @@
 package com.illusivesoulworks.elytraslot;
 
 import com.illusivesoulworks.elytraslot.common.CurioElytra;
+import com.illusivesoulworks.elytraslot.common.integration.deeperdarker.DeeperDarkerClientPlugin;
+import com.illusivesoulworks.elytraslot.common.integration.deeperdarker.DeeperDarkerPlugin;
+import com.illusivesoulworks.elytraslot.platform.Services;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import net.minecraft.core.Direction;
@@ -56,6 +59,10 @@ public class ElytraSlotForgeMod {
   private void setup(final FMLCommonSetupEvent evt) {
     MinecraftForge.EVENT_BUS.addGenericListener(ItemStack.class, this::attachCapabilities);
     MinecraftForge.EVENT_BUS.addListener(this::playerTick);
+
+    if (Services.PLATFORM.isModLoaded("deeperdarker")) {
+      DeeperDarkerPlugin.setup();
+    }
   }
 
   private void clientSetup(final FMLClientSetupEvent evt) {

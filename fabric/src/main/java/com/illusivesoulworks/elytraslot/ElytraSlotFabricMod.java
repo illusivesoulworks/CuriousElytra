@@ -17,6 +17,7 @@
 
 package com.illusivesoulworks.elytraslot;
 
+import com.illusivesoulworks.elytraslot.common.integration.deeperdarker.DeeperDarkerPlugin;
 import com.illusivesoulworks.elytraslot.platform.Services;
 import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.Trinket;
@@ -68,5 +69,9 @@ public class ElytraSlotFabricMod implements ModInitializer {
         return ElytraSlotCommonMod.canEquip(entity);
       }
     });
+
+    if (Services.PLATFORM.isModLoaded("deeperdarker")) {
+      DeeperDarkerPlugin.setup();
+    }
   }
 }

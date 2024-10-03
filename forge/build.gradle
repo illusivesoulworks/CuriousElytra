@@ -103,6 +103,7 @@ dependencies {
 
     compileOnly fg.deobf("curse.maven:zeta-968868:5418213")
     compileOnly fg.deobf("curse.maven:quark-243121:5418252")
+    compileOnly fg.deobf("curse.maven:deeperdarker-659011:5698212")
 
     implementation(jarJar("com.github.bawnorton.mixinsquared:mixinsquared-forge:0.1.2-beta.6")) {
         jarJar.ranged(it, "[0.1.2-beta.6,)")

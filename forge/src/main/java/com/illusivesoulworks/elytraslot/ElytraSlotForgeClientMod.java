@@ -18,6 +18,9 @@
 package com.illusivesoulworks.elytraslot;
 
 import com.illusivesoulworks.elytraslot.client.ElytraSlotLayer;
+import com.illusivesoulworks.elytraslot.common.integration.deeperdarker.DeeperDarkerClientPlugin;
+import com.illusivesoulworks.elytraslot.common.integration.deeperdarker.DeeperDarkerPlugin;
+import com.illusivesoulworks.elytraslot.platform.Services;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
@@ -36,6 +39,10 @@ public class ElytraSlotForgeClientMod {
     IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
     eventBus.addListener(ElytraSlotForgeClientMod::addLayers);
     MinecraftForge.EVENT_BUS.addListener(ElytraSlotForgeClientMod::renderCape);
+
+    if (Services.PLATFORM.isModLoaded("deeperdarker")) {
+      DeeperDarkerClientPlugin.setup();
+    }
   }
 
   private static void addLayers(final EntityRenderersEvent.AddLayers evt) {

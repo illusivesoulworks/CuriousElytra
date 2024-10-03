@@ -8,6 +8,15 @@ plugins {
 
 archivesBaseName = "${mod_id}-quilt"
 
+repositories {
+    maven {
+        url "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
+}
+
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
     mappings(loom.layered {
@@ -21,6 +30,7 @@ dependencies {
     modImplementation "org.quiltmc.quilted-fabric-api:quilted-fabric-api:${quilted_fabric_api_version}"
     modImplementation "dev.emi:trinkets:${trinkets_version}"
     modCompileOnly "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${cca_version}"
+    modCompileOnly "curse.maven:deeperdarker-659011:5725442"
 
     modRuntimeOnly("com.terraformersmc:modmenu:${mod_menu_version}") {
         transitive = false
