@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 Prior to version 6.0.0, this project used MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 
+## [6.4.4+1.20.1] - 2024.10.02
+### Fixed
+- Fixed Deeper Darker Soul Elytra boosting [#132](https://github.com/illusivesoulworks/elytraslot/issues/132)
+- Fixed potential ConcurrentModificationException upon joining a world [#130](https://github.com/illusivesoulworks/elytraslot/issues/130)
+
 ## [6.4.3+1.20.1] - 2024.07.31
 ### Fixed
 - Fixed crash with VS Additions [#126](https://github.com/illusivesoulworks/elytraslot/issues/126)
